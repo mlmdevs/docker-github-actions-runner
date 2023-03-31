@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        release: [jammy, focal, bionic, xenial]
+        release: [jammy, focal, bionic]
       fail-fast: false
     steps:
       - name: Copy Repo Files
@@ -77,7 +77,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        release: [bullseye, sid, buster, stretch]
+        release: [bullseye, sid, buster]
       fail-fast: false
     steps:
       - name: Copy Repo Files
