@@ -7,8 +7,8 @@ on:
     branches:
       - master
       - develop
-  schedule:
-    - cron:  '0 22 * * *'
+  # schedule:
+  #   - cron:  '0 22 * * *'
 
 jobs:
   ubuntu_base_latest_deploy:
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        release: [jammy, focal, bionic]
+        release: [jammy, focal, bionic, xenial]
       fail-fast: false
     steps:
       - name: Copy Repo Files
@@ -77,7 +77,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        release: [bullseye, sid]
+        release: [bullseye, sid, buster, stretch]
       fail-fast: false
     steps:
       - name: Copy Repo Files
