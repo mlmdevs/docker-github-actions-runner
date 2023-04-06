@@ -35,7 +35,7 @@ jobs:
           pull: true
           push: true
           tags: ${{ env.ORG }}/github-runner-base:latest
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        release: [jammy, focal, bionic, xenial]
+        release: [jammy, focal, bionic]
       fail-fast: false
     steps:
       - name: Copy Repo Files
@@ -69,7 +69,7 @@ jobs:
           pull: true
           push: true
           tags: ${{ env.ORG }}/github-runner-base:ubuntu-${{ matrix.release }}
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -77,7 +77,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        release: [bullseye, sid, buster, stretch]
+        release: [bullseye, sid, buster]
       fail-fast: false
     steps:
       - name: Copy Repo Files
@@ -103,6 +103,6 @@ jobs:
           pull: true
           push: true
           tags: ${{ env.ORG }}/github-runner-base:debian-${{ matrix.release }}
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           cache-from: type=gha
           cache-to: type=gha,mode=max
